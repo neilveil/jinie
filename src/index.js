@@ -17,7 +17,8 @@ var defaultConfig = {
 
 const main = {
   setDropArea: (selector, _callback = () => {}, _config = {}) => {
-    const el = document.querySelector(selector)
+    const el =
+      typeof selector === 'string' ? document.querySelector(selector) : selector
     if (!el) return
 
     _config = Object.assign(defaultConfig, _config)
