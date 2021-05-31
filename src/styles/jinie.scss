@@ -1,0 +1,143 @@
+$name: jinie;
+
+$c-primary: #000000;
+
+#jinie {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+  z-index: 10000000;
+  display: flex;
+  flex-direction: row;
+  display: none;
+  user-select: none;
+  overflow: hidden;
+}
+#jinie input[type='number']::-webkit-inner-spin-button,
+#jinie input[type='number']::-webkit-outer-spin-button {
+  appearance: none;
+}
+.jinie-editable-wrapper {
+  width: calc(100vw - 500px);
+  padding: 32px;
+  margin: auto;
+}
+.jinie-editable {
+  display: flex;
+  width: 100%;
+  background-color: #ffffff;
+}
+.jinie-editable > img {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-width: calc(100vw - 2 * 32px);
+  max-height: calc(100vh - 2 * 32px);
+  margin: auto;
+}
+.jinie-controls {
+  width: 40%;
+  max-width: 500px;
+  border-left: 0.1rem solid #e8e8e8;
+}
+.jinie-icons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+.jinie-icons svg {
+  width: 4rem;
+  height: 4rem;
+  padding: 1rem;
+  cursor: pointer;
+}
+.jinie-icons svg:hover {
+  background-color: #f8f8f8;
+}
+.jinie-icons svg + svg {
+  margin-left: 0;
+}
+.jinie-row {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem;
+}
+.jinie-field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.jinie-field > div {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  font-weight: 500;
+}
+.jinie-field > input {
+  outline: none;
+  border: none;
+  font-size: 2rem;
+  text-align: center;
+  width: 100%;
+}
+.jinie-buttons {
+  text-align: center;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 1rem 0;
+}
+.jinie-buttons > button {
+  background-color: $c-primary;
+  color: #ffffff;
+  padding: 0.5rem 2rem;
+  border-radius: 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  outline: none;
+  border: none;
+}
+
+/* Cropper */
+.cropper-modal {
+  background-color: #ffffff !important;
+  opacity: 0.8 !important;
+}
+.cropper-crop-box {
+  border: 0.25rem solid #e8e8e8;
+}
+.cropper-point {
+  background-color: $c-primary;
+  height: 0.5rem;
+  opacity: 1;
+  width: 0.5rem;
+}
+.cropper-view-box {
+  outline: none !important;
+}
+
+@media (max-width: 1024px) {
+  #jinie {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  .jinie-editable-wrapper {
+    width: 100%;
+    background-color: #f8f8f8;
+  }
+  .jinie-controls {
+    width: 100%;
+  }
+  .jinie-controls {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .jinie-icons {
+    margin-top: 2rem;
+    justify-content: space-evenly;
+  }
+}
