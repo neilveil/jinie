@@ -4,8 +4,8 @@ const pkgJSON = require('./package.json')
 
 fs.writeFileSync(
   'build/index.js',
-  `// ${pkgJSON.name}@${pkgJSON.version} \n`,
-  fs.readFileSync('build/index.js').toString().split('\n')[1]
+  `// ${pkgJSON.name}@${pkgJSON.version} \n` +
+    fs.readFileSync('build/index.js').toString().split('\n')[1]
 )
 
 fs.writeFileSync(

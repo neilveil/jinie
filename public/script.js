@@ -8,7 +8,8 @@ window.jinie.setDropArea(
   {
     name: 'image-1',
     // Set fields below to 0 to ignore
-    maxSize: 10000000, // In bytes, e.g. 10000000
+    maxSize: 500000, // In bytes, e.g. 10000000
     aspectRatio: 0, // e.g. 1
+    icon: true, // Outputs .png file
   }
 )
