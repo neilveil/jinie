@@ -58,18 +58,21 @@ const main = {
       e.stopPropagation()
       el.classList.remove(className)
 
-      config = _config
-      callback = _callback
+      setVars({ _config, _callback })
 
       getImage(e.dataTransfer.files[0])
     }
     el.onclick = () => {
-      config = _config
-      callback = _callback
+      setVars({ _config, _callback })
 
       inputEL.click()
     }
   },
+}
+
+const setVars = ({ _config, _callback }) => {
+  config = _config
+  callback = _callback
 }
 
 const init = () => {

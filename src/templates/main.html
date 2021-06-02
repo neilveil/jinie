@@ -1,28 +1,33 @@
 <div id="{{name}}">
-  <div class="jinie-editable-wrapper">
-    <div class="jinie-editable">
-      <img id="jinie-img" />
+  <div class="{{name}}-editable-wrapper">
+    <div class="{{name}}-editable">
+      <img id="{{name}}-img" />
     </div>
   </div>
-  <div class="jinie-controls">
+  <div class="{{name}}-controls">
     <div>
-      <div class="jinie-icons">
+      <div class="{{name}}-icons">
         <div>
           <svg
-            id="jinie-icon-square"
+            id="{{name}}-icon-square"
             width="256"
             height="256"
             viewBox="0 0 256 256"
-            fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M252.056 221.002H229.603V35.0005H252.056C254.236 35.0005 256 33.2363 256 31.0632C256 28.8873 254.236 27.126 252.056 27.126H228.835V3.93723C228.835 1.76418 227.068 0 224.892 0C222.715 0 220.948 1.76418 220.948 3.93723V27.1231H35.0519V3.93723C35.0519 1.76418 33.2848 0 31.1082 0C28.9288 0 27.1646 1.76418 27.1646 3.93723V27.1231H3.94366C1.76706 27.1231 0 28.8845 0 31.0604C0 33.2334 1.76706 34.9976 3.94366 34.9976H27.1674V221.002H3.94366C1.76706 221.002 0 222.767 0 224.94C0 227.118 1.76706 228.877 3.94366 228.877H27.1674V252.063C27.1674 254.236 28.9316 256 31.1111 256C33.2877 256 35.0548 254.236 35.0548 252.063V229.229H220.951V252.063C220.951 254.236 222.715 256 224.895 256C227.071 256 228.838 254.236 228.838 252.063V228.877H252.056C254.233 228.877 256 227.118 256 224.94C256 222.767 254.236 221.002 252.056 221.002ZM221.275 95.1912H160.811V35.0005H221.275V95.1912ZM158.182 97.9933V158.187H97.7094V97.9933H158.182ZM95.0803 97.9933V158.187H35.0519V97.9933H95.0803ZM95.0803 160.812V221.18H35.0519V160.812H95.0803ZM97.7094 160.812H158.182V221.18H97.7094V160.812ZM160.811 160.812H221.275V221.18H160.811V160.812ZM160.811 158.187V97.9933H221.275V158.187H160.811ZM158.182 95.1912H97.7094V35.0005H158.182V95.1912V95.1912ZM95.0803 95.1912H35.0519V35.0005H95.0803V95.1912Z"
-              fill="black"
+              d="M1 31H255M225 1V254.5M31 1V254.5M1 225H255"
+              stroke="black"
+              stroke-width="16"
+            />
+            <path
+              d="M31 96H225M225 159.5H31M96.5 30.5V225.5M160 30.5V225.5"
+              stroke="black"
+              stroke-width="8"
             />
           </svg>
           <svg
-            id="jinie-icon-rotate"
+            id="{{name}}-icon-rotate"
             width="256"
             height="256"
             viewBox="0 0 256 256"
@@ -59,7 +64,7 @@
             />
           </svg>
           <svg
-            id="jinie-icon-download"
+            id="{{name}}-icon-download"
             width="256"
             height="256"
             viewBox="0 0 256 256"
@@ -74,7 +79,7 @@
         </div>
         <div>
           <svg
-            id="jinie-icon-close"
+            id="{{name}}-icon-close"
             width="256"
             height="256"
             viewBox="0 0 256 256"
@@ -92,51 +97,46 @@
           </svg>
         </div>
       </div>
-      <div class="jinie-row">
-        <div class="jinie-field" style="width: 50%">
+      <div class="{{name}}-row">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Position X</div>
-          <input id="jinie-x" type="number" value="0" />
+          <input id="{{name}}-x" type="number" value="0" />
         </div>
-        <div class="jinie-field" style="width: 50%">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Position Y</div>
-          <input id="jinie-y" type="number" value="0" />
+          <input id="{{name}}-y" type="number" value="0" />
         </div>
       </div>
-      <div class="jinie-row">
-        <div class="jinie-field" style="width: 50%">
+      <div class="{{name}}-row">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Width</div>
-          <input id="jinie-width" type="number" value="0" />
+          <input id="{{name}}-width" type="number" value="0" />
         </div>
-        <div class="jinie-field" style="width: 50%">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Height</div>
-          <input id="jinie-height" type="number" value="0" />
+          <input id="{{name}}-height" type="number" value="0" />
         </div>
       </div>
-      <div class="jinie-row">
-        <div class="jinie-field" style="width: 50%">
+      <div class="{{name}}-row">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Rotation</div>
-          <input id="jinie-rotate" type="number" value="0" />
+          <input id="{{name}}-rotate" type="number" value="0" />
         </div>
-        <div class="jinie-field" style="width: 50%">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Aspect ratio</div>
-          <input id="jinie-aspect-ratio" value="0" />
+          <input id="{{name}}-aspect-ratio" value="0" />
         </div>
       </div>
-      <div class="jinie-row">
-        <div class="jinie-field" style="width: 50%">
+      <div class="{{name}}-row">
+        <div class="{{name}}-field" style="width: 50%">
           <div>Max size</div>
-          <input id="jinie-max-size" type="number" value="0" />
+          <input id="{{name}}-max-size" type="number" value="0" />
         </div>
       </div>
     </div>
-    <div class="jinie-buttons">
-      <button
-        id="jinie-button-reset"
-        style="background-color: #f8f8f8; color: #484848"
-      >
-        Reset
-      </button>
-      <button id="jinie-button-done">Done</button>
+    <div class="{{name}}-buttons">
+      <button id="{{name}}-button-reset">Reset</button>
+      <button id="{{name}}-button-done">Done</button>
     </div>
   </div>
 </div>

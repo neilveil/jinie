@@ -1,36 +1,70 @@
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/roboto/v27/KFOmCnqEu92Fr1Mu4mxK.woff2)
+    format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
 $name: jinie;
 
-$c-primary: #000000;
+:root {
+  --#{$name}-primary: #000000;
+  --#{$name}-bg: #ffffff;
+  --#{$name}-font-color: #484848;
+  --#{$name}-stroke: #e8e8e8;
+  --#{$name}-light: #f8f8f8;
+}
 
-#jinie {
+// Dark theme
+// :root {
+//   --jinie-primary: #ffffff !important;
+//   --jinie-bg: #181818 !important;
+//   --jinie-font-color: #ffffff !important;
+//   --jinie-stroke: #484848 !important;
+//   --jinie-light: #484848 !important;
+// }
+// :root .jinie-icons > div:first-child svg {
+//   filter: invert(100%) !important;
+// }
+// :root .jinie-icons > div:first-child svg:hover {
+//   background-color: #b8b8b8 !important;
+// }
+
+##{$name} {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: #ffffff;
+  background-color: var(--#{$name}-bg);
   z-index: 10000000;
   display: flex;
   flex-direction: row;
   display: none;
   user-select: none;
   overflow: hidden;
+  font-family: Roboto;
 }
-#jinie input[type='number']::-webkit-inner-spin-button,
-#jinie input[type='number']::-webkit-outer-spin-button {
+##{$name} input[type='number']::-webkit-inner-spin-button,
+##{$name} input[type='number']::-webkit-outer-spin-button {
   appearance: none;
 }
-.jinie-editable-wrapper {
+.#{$name}-editable-wrapper {
   width: calc(100vw - 500px);
   padding: 32px;
   margin: auto;
 }
-.jinie-editable {
+.#{$name}-editable {
   display: flex;
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--#{$name}-bg);
 }
-.jinie-editable > img {
+.#{$name}-editable > img {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -38,105 +72,122 @@ $c-primary: #000000;
   max-height: calc(100vh - 2 * 32px);
   margin: auto;
 }
-.jinie-controls {
+.#{$name}-controls {
   width: 40%;
   max-width: 500px;
-  border-left: 0.1rem solid #e8e8e8;
+  border-left: 0.15rem solid var(--#{$name}-stroke);
 }
-.jinie-icons {
+.#{$name}-icons {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
 }
-.jinie-icons svg {
+.#{$name}-icons svg {
   width: 4rem;
   height: 4rem;
   padding: 1rem;
   cursor: pointer;
 }
-.jinie-icons svg:hover {
-  background-color: #f8f8f8;
+.#{$name}-icons svg:hover {
+  background-color: var(--#{$name}-stroke);
 }
-.jinie-icons svg + svg {
+.#{$name}-icons svg + svg {
   margin-left: 0;
 }
-.jinie-row {
+.#{$name}-row {
   display: flex;
   flex-direction: row;
   padding: 1rem;
 }
-.jinie-field {
+.#{$name}-field {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
-.jinie-field > div {
+.#{$name}-field > div {
   font-size: 0.9rem;
   white-space: nowrap;
-  font-weight: 500;
+  font-weight: 800;
+  color: var(--#{$name}-font-color);
 }
-.jinie-field > input {
+.#{$name}-field > input {
   outline: none;
   border: none;
   font-size: 2rem;
   text-align: center;
   width: 100%;
+  background-color: transparent;
+  color: var(--#{$name}-font-color);
 }
-.jinie-buttons {
+.#{$name}-buttons {
   text-align: center;
   margin-top: 2rem;
   display: flex;
   justify-content: space-evenly;
   padding: 1rem 0;
 }
-.jinie-buttons > button {
-  background-color: $c-primary;
-  color: #ffffff;
+.#{$name}-buttons > button {
   padding: 0.5rem 2rem;
   border-radius: 2rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   outline: none;
   border: none;
+  background-color: var(--#{$name}-primary);
+  color: var(--#{$name}-bg);
+}
+.#{$name}-buttons > button:first-child {
+  background-color: var(--#{$name}-stroke);
+  color: var(--#{$name}-font-color);
 }
 
 /* Cropper */
 .cropper-modal {
-  background-color: #ffffff !important;
+  background-color: var(--#{$name}-bg) !important;
   opacity: 0.8 !important;
 }
 .cropper-crop-box {
-  border: 0.25rem solid #e8e8e8;
+  outline: none;
+  // outline: 0.25rem solid var(--#{$name}-stroke);
 }
 .cropper-point {
-  background-color: $c-primary;
+  background-color: var(--#{$name}-primary);
   height: 0.5rem;
   opacity: 1;
   width: 0.5rem;
 }
-.cropper-view-box {
-  outline: none !important;
+.cropper-dashed {
+  opacity: 0.8 !important;
+  border-color: var(--#{$name}-bg);
+}
+.cropper-dashed.dashed-v {
+  border-left-width: 0.2rem;
+  border-right-width: 0.2rem;
+}
+.cropper-dashed.dashed-h {
+  border-top-width: 0.2rem;
+  border-bottom-width: 0.2rem;
 }
 
 @media (max-width: 1024px) {
-  #jinie {
+  ##{$name} {
     flex-direction: column;
     overflow-y: auto;
   }
-  .jinie-editable-wrapper {
+  .#{$name}-editable-wrapper {
     width: 100%;
-    background-color: #f8f8f8;
+    background-color: var(--#{$name}-light);
   }
-  .jinie-controls {
+  .#{$name}-controls {
     width: 100%;
   }
-  .jinie-controls {
+  .#{$name}-controls {
     display: flex;
     flex-direction: column-reverse;
   }
-  .jinie-icons {
+  .#{$name}-icons {
     margin-top: 2rem;
     justify-content: space-evenly;
   }
