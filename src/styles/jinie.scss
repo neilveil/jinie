@@ -15,7 +15,7 @@ $name: jinie;
 :root {
   --#{$name}-primary: #000000;
   --#{$name}-bg: #ffffff;
-  --#{$name}-font-color: #484848;
+  --#{$name}-font-color: #282828;
   --#{$name}-stroke: #e8e8e8;
   --#{$name}-light: #f8f8f8;
 }
@@ -49,6 +49,7 @@ $name: jinie;
   user-select: none;
   overflow: hidden;
   font-family: Roboto;
+  font-size: 18px;
 }
 ##{$name} input[type='number']::-webkit-inner-spin-button,
 ##{$name} input[type='number']::-webkit-outer-spin-button {
@@ -75,17 +76,17 @@ $name: jinie;
 .#{$name}-controls {
   width: 40%;
   max-width: 500px;
-  border-left: 0.15rem solid var(--#{$name}-stroke);
+  border-left: 0.15em solid var(--#{$name}-stroke);
 }
 .#{$name}-icons {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 2em;
 }
 .#{$name}-icons svg {
-  width: 4rem;
-  height: 4rem;
-  padding: 1rem;
+  width: 4em;
+  height: 4em;
+  padding: 1em;
   cursor: pointer;
 }
 .#{$name}-icons svg:hover {
@@ -97,7 +98,7 @@ $name: jinie;
 .#{$name}-row {
   display: flex;
   flex-direction: row;
-  padding: 1rem;
+  padding: 1em;
 }
 .#{$name}-field {
   display: flex;
@@ -106,7 +107,7 @@ $name: jinie;
   align-items: center;
 }
 .#{$name}-field > div {
-  font-size: 0.9rem;
+  font-size: 0.9em;
   white-space: nowrap;
   font-weight: 800;
   color: var(--#{$name}-font-color);
@@ -114,7 +115,7 @@ $name: jinie;
 .#{$name}-field > input {
   outline: none;
   border: none;
-  font-size: 2rem;
+  font-size: 2em;
   text-align: center;
   width: 100%;
   background-color: transparent;
@@ -122,15 +123,15 @@ $name: jinie;
 }
 .#{$name}-buttons {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2em;
   display: flex;
   justify-content: space-evenly;
-  padding: 1rem 0;
+  padding: 1em 0;
 }
 .#{$name}-buttons > button {
-  padding: 0.5rem 2rem;
-  border-radius: 2rem;
-  font-size: 1rem;
+  padding: 0.5em 2em;
+  border-radius: 2em;
+  font-size: 1em;
   font-weight: 800;
   cursor: pointer;
   outline: none;
@@ -150,7 +151,7 @@ $name: jinie;
 }
 .cropper-crop-box {
   outline: none;
-  // outline: 0.25rem solid var(--#{$name}-stroke);
+  // outline: 0.25em solid var(--#{$name}-stroke);
 }
 .cropper-point {
   background-color: var(--#{$name}-primary);
@@ -188,7 +189,7 @@ $name: jinie;
     flex-direction: column-reverse;
   }
   .#{$name}-icons {
-    margin-top: 2rem;
+    margin-top: 2em;
     justify-content: space-evenly;
   }
 }

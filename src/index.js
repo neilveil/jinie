@@ -11,6 +11,7 @@ var defaultConfig = {
     maxSize: 0, // In bytes, e.g. 10000000
     aspectRatio: 0, // e.g. 1.2
     icon: false, // Outputs .png file
+    rounded: false,
   },
   config = {},
   processing = false
@@ -78,7 +79,7 @@ const setVars = ({ _config, _callback }) => {
 const init = () => {
   if (!document.querySelector('#' + name)) {
     document.body.appendChild(
-      new DOMParser().parseFromString(html, 'text/html').body.childNodes[0]
+      new DOMParser().parseFromString(html, 'text/html').body.firstChild
     )
     addListeners()
   }
@@ -86,6 +87,12 @@ const init = () => {
   if (config.aspectRatio) {
     el.square().remove()
     el.aspectRatio().parentElement.remove()
+  }
+
+  if (config.rounded) {
+    document.querySelector(
+      `#${name}-styles`
+    ).innerHTML = `.cropper-view-box,.cropper-face{border-radius: 50%;}`
   }
 
   if (config.maxSize) el.maxSize().parentElement.remove()

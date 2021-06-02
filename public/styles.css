@@ -12,6 +12,8 @@ button {
   --c-accent: #10aad4;
   --c-bg: #ffffff;
 
+  --jinie-primary: #8c34ef !important;
+
   --ff-1: Karla, sans-serif;
   --ff-2: Limelight, sans-serif;
 }

@@ -6,10 +6,14 @@ window.jinie.setDropArea(
     console.log(file, url, config)
   },
   {
-    name: 'image-1',
-    // Set fields below to 0 to ignore
+    // Set fields below to false to ignore
     maxSize: 500000, // In bytes, e.g. 10000000
     aspectRatio: 0, // e.g. 1
     icon: true, // Outputs .png file
+    rounded: false, // To show rounded viewbox
+    // Other fields that you want to receive in file upload callback
+    id: '1',
+    name: 'profile_image',
+    // ..
   }
 )
