@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "webpack server --config webpack.config.js",
-    "build": "rimraf build && NODE_ENV=production webpack --config webpack.config.js && rm build/*.LICENSE.txt && cp package.public.json build/package.json"
+    "build": "rimraf build && NODE_ENV=production webpack --config webpack.config.js && rm build/*.LICENSE.txt && cp package.public.json build/package.json",
+    "publish": "npm run build && cd build && npm publish"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.6",
