@@ -1,0 +1,10 @@
+{
+  "name": "jinie",
+  "description": "A simple responsive image cropper with integrated compressor",
+  "author": "neilveil",
+  "version": "2.0.0",
+  "private": false,
+  "main": "index.js",
+  "dependencies": {},
+  "repository": "git@github.com:neilveil/jinie.git"
+}

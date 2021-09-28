@@ -11,9 +11,6 @@ button {
   --c-primary: #8c34ef;
   --c-accent: #10aad4;
   --c-bg: #ffffff;
-
-  --jinie-primary: #8c34ef !important;
-
   --ff-1: Karla, sans-serif;
   --ff-2: Limelight, sans-serif;
 }
@@ -54,12 +51,12 @@ body {
   text-align: center;
   font-size: 1.2rem;
   cursor: pointer;
-  border: 0.2rem dashed transparent;
+  border: 0.2rem solid #cccccc;
   transition: all 200ms ease;
 }
 .drop-area.active,
 .drop-area:hover {
-  border-color: #484848;
+  border: 0.2rem dashed #484848;
 }
 .drop-area svg {
   width: 4rem;

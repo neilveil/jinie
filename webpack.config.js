@@ -1,5 +1,5 @@
 const handlebars = require('handlebars')
-const vars = require('./vars.json')
+const name = 'jinie'
 
 const PORT = process.env.PORT || 5009
 
@@ -11,8 +11,8 @@ module.exports = {
     path: __dirname + '/build',
     filename: 'index.js',
     library: {
-      type: 'umd',
-    },
+      type: 'umd'
+    }
   },
   module: {
     rules: [
@@ -25,30 +25,31 @@ module.exports = {
             loader: 'postcss-loader',
             options: {
               postcssOptions: {
-                plugins: [['autoprefixer']],
-              },
-            },
+                plugins: [['autoprefixer']]
+              }
+            }
           },
-          'sass-loader',
-        ],
+          'sass-loader'
+        ]
       },
       {
         test: /\.html$/,
         loader: 'html-loader',
         options: {
-          preprocessor: (content) => handlebars.compile(content)(vars),
-        },
-      },
-    ],
+          preprocessor: content => handlebars.compile(content)({ name })
+        }
+      }
+    ]
   },
   stats: 'errors-only',
   devtool: IS_PROD ? false : 'eval',
   devServer: {
     contentBase: __dirname + '/public',
     compress: true,
+    host: '0.0.0.0',
     port: PORT,
     historyApiFallback: true,
-    hot: true,
+    hot: true
   },
-  mode: IS_PROD ? 'production' : 'development',
+  mode: IS_PROD ? 'production' : 'development'
 }
