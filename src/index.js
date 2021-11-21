@@ -25,8 +25,6 @@ class main {
 
     this.dropAreaEl.dataset[name] = 'true'
 
-    console.log('Jinie ready!')
-
     // Bind listeners to file upload area
     this.bindDropAreaListeners()
 
