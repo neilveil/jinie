@@ -6,12 +6,17 @@
   </div>
 
   <div class="{{name}}-buttons">
+    <div id="{{name}}-rotate" class="{{name}}-rotate">
+      <input type="range" min="-180" max="180" step="1" value="0" />
+    </div>
+
     <div id="{{name}}-close">
       <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="128" cy="128" r="116" stroke="red" stroke-width="24" />
         <path d="M86 86L170 170M86 170L170 86" stroke="red" stroke-width="24" stroke-linecap="round" />
       </svg>
     </div>
+
     <div id="{{name}}-done">
       <svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path

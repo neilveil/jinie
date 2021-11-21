@@ -13,6 +13,8 @@ window.addEventListener('load', () => {
       aspectRatio: 1, // {Integer} Aspect ratio
       icon: true, // {Boolean} If true, outputs .png file
       rounded: true, // {Boolean} To show rounded viewbox
+      minWidth: 200, // Crop box min width
+      minHeight: 200, // Crop box min height
       // Other fields that you want to receive in file upload callback
       id: '1',
       name: 'profile_image'

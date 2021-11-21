@@ -8,7 +8,7 @@ import './styles/index.scss'
 const name = 'jinie'
 
 class main {
-  constructor({ dropArea, cb, config }) {
+  constructor({ dropArea, cb, config = {} }) {
     // After finish callback
     if (cb) this.cb = cb
 
@@ -24,6 +24,8 @@ class main {
     if (this.dropAreaEl.dataset[name] === 'true') return
 
     this.dropAreaEl.dataset[name] = 'true'
+
+    console.log('Jinie ready!')
 
     // Bind listeners to file upload area
     this.bindDropAreaListeners()
@@ -43,7 +45,9 @@ class main {
     aspectRatio: 0, // e.g. 1.2
     icon: false, // Outputs .png file
     rounded: false,
-    quality: 0.4
+    quality: 0.4,
+    minWidth: 100,
+    minHeight: 100
   }
   bindDropAreaListeners = () => {
     const className = 'active'
@@ -84,7 +88,7 @@ class main {
     }
     this.dropAreaEl.onclick = () => this.fileEL.click()
   }
-  done = async download => {
+  done = async () => {
     this.getEl.done().parentElement.remove()
 
     var canvas = this.cropper.getCroppedCanvas({
@@ -135,6 +139,7 @@ class main {
       document.body.appendChild(new DOMParser().parseFromString(html, 'text/html').body.firstChild)
     }
 
+    this.getEl.rotate().oninput = this.rotate
     this.getEl.done().onclick = this.done
     this.getEl.close().onclick = this.close
 
@@ -145,6 +150,7 @@ class main {
   getEl = {
     main: () => document.querySelector(`#${name}`),
     img: () => document.querySelector(`#${name}-img`),
+    rotate: () => document.querySelector(`#${name}-rotate`),
     close: () => document.querySelector(`#${name}-close`),
     done: () => document.querySelector(`#${name}-done`)
   }
@@ -165,7 +171,11 @@ class main {
         fillColor: '#ffffff',
         autoCrop: true,
         autoCropArea: 1,
-        background: false
+        rotatable: true,
+        scalable: true,
+        background: false,
+        minCropBoxWidth: this.config.minWidth,
+        maxCropBoxWidth: this.config.minHeight
       })
 
       if (this.config.aspectRatio) this.cropper.setAspectRatio(this.config.aspectRatio)
@@ -173,6 +183,7 @@ class main {
 
     reader.readAsDataURL(img)
   }
+  rotate = e => this.cropper.setData(Object.assign(this.cropper.getData(), { rotate: parseInt(e.target.value) }))
   close = () => {
     this.cropper.destroy()
     this.fileEL.value = null
@@ -181,3 +192,4 @@ class main {
 }
 
 window[name] = main
+export default main

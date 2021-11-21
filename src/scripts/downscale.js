@@ -5,8 +5,7 @@ export default (canvas, scale) => {
   var width_source = canvas.width
   var height_source = canvas.height
 
-  if (!(scale < 1) || !(scale > 0))
-    throw new Error('scale must be a positive number less than 1')
+  if (!(scale < 1) || !(scale > 0)) throw new Error('scale must be a positive number less than 1')
 
   scale = Math.pow(scale, 1 / 2)
 
