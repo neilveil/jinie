@@ -1,0 +1,64 @@
+.title {
+  font-weight: 500;
+  margin-top: 16px;
+  margin-bottom: 64px;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 32px;
+  font-size: 24px;
+}
+
+.label {
+  margin: 32px 0 16px 0;
+  font-weight: 500;
+}
+
+.break {
+  margin: 64px 0;
+  height: 1px;
+  background-color: #e8e8e8;
+  width: 100%;
+}
+
+.uploadedImg {
+  margin: 64px auto;
+  max-width: 400px;
+  padding: 32px;
+  border: 1px solid #e8e8e8;
+  cursor: pointer;
+
+  &:hover {
+    border-color: red;
+  }
+
+  img {
+    background-color: #e8e8e8;
+    background-image: url('/texture.png');
+  }
+}
+
+.maxSizeRange {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+}
+
+.maxSizeRange input {
+  margin-right: 20px;
+}
+
+.theme {
+  display: inline-flex;
+  margin: 32px 0;
+  gap: 16px;
+  padding: 4px 8px;
+
+  & > div {
+    background-color: #f8f8f8;
+    cursor: pointer;
+    padding: 4px 16px;
+  }
+
+  .active {
+    border-bottom: 2px solid #484848;
+  }
+}

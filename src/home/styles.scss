@@ -1,0 +1,107 @@
+$border: 1px solid #e8e8e8;
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+}
+
+.header {
+  background-color: #e6eaff;
+
+  & > div {
+    padding: 80px 32px;
+  }
+}
+
+.logo-name {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 24px;
+
+  .name {
+    font-size: 64px;
+    font-weight: 500;
+    color: #ff9933;
+  }
+
+  .logo {
+    width: 64px;
+  }
+}
+
+.tagline {
+  margin-bottom: 16px;
+}
+
+.install {
+  margin-top: 16px;
+  font-size: 16px;
+  color: #484848;
+  background-color: #f8f8f8;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-family: Roboto Mono;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.highlights {
+  margin-top: 32px;
+  font-size: 16px;
+  color: #484848;
+  list-style: none;
+  padding: 0;
+  line-height: 2;
+
+  & li:before {
+    content: '✓';
+    padding-right: 10px;
+    color: #55c610;
+    font-weight: 900;
+  }
+}
+
+.github {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #24292f;
+  margin-top: 32px;
+}
+
+.github img {
+  width: 24px;
+}
+
+.body {
+  padding: 32px;
+}
+
+.footer {
+  padding: 20px;
+  border-top: 1px solid #e8e8e8;
+  text-align: center;
+  margin-top: 64px;
+}
+
+.footer a {
+  padding: 0 5px;
+  font-size: 24px;
+  text-decoration: none;
+  background: linear-gradient(148deg, #4568dc 0%, #b06ab3 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: Pacifico, monospace;
+}

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "declarationDir": "types",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["src/lib/**/*"],
+  "exclude": ["node_modules/**/*"]
+}

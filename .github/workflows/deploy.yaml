@@ -1,0 +1,46 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: master
+
+      - name: Install packages
+        run: npm i
+
+      - name: Build assets
+        run: npm run build
+
+      - name: Build pages
+        run: npm run build-plus
+
+      - name: Move assets to tmp
+        run: cp -r build tmp
+
+      - uses: actions/checkout@v3
+        with:
+          ref: gh-pages
+          clean: false
+
+      - name: Remove everything from root
+        run: git reset --hard
+
+      - name: Move all assets from tmp to root
+        run: cp -rf tmp/* .
+
+      - name: Remove unused directory
+        run: rm -rf node_modules build tmp
+
+      - name: Commit
+        run: git add .
+      - run: git config --global user.name "${GITHUB_ACTOR}"
+      - run: git config --global user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
+      - run: git commit --amend --no-edit
+      - run: git push origin -f gh-pages

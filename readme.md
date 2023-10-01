@@ -1,0 +1,91 @@
+# Jinie
+
+**✨ Simple Image Editing & Compression Tool ✨**
+
+Easily enhance and optimize images before upload with Jinie. Crop, pan, scale, and rotate with a built-in compression feature to compress images to the target size. 🚀
+
+## Installation 🚀
+
+To install the **Jinie** package, you can use npm:
+
+```bash
+npm install jinie
+```
+
+## Usage 🛠️
+
+Jinie need to be initialized only once at the top.
+
+ReactJS example
+
+```jsx
+import Jinie from 'jinie'
+
+function App() {
+  return (<div>
+    {/* Initialize Jinie */}
+    <Jinie />
+
+    ..
+
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" />
+        ..
+      </Routes>
+    </BrowserRouter>
+  </div>)
+}
+
+createRoot(document.getElementById('root') as HTMLElement).render(<App />)
+```
+
+Here's a basic example of how to use Compression Loop to compress images:
+
+```jsx
+const Jinie = require('jinie');
+
+..
+
+<input
+  type='file'
+  accept='image/jpeg'
+  onChange={async (e) => {
+    const img = e.target.files[0]
+    Jinie.init({
+      img,
+      onReady: img => {
+        const result = setImgURL(window.URL.createObjectURL(img))
+        console.log(result) // Image blob
+      }
+    })
+  }}
+/>
+```
+
+| Argument    | Type     | Usage                                                            |
+| ----------- | -------- | ---------------------------------------------------------------- |
+| \*img       | Blob     | Source image                                                     |
+| onReady     | Number   | On ready callback                                                |
+| onCancel    | Function | On cancel callback, with cancel reason as argument               |
+| aspectRatio | Number   |                                                                  |
+| icon        | Number   | Output png file (Default: `false`)                               |
+| fill        | Number   | Background color (Default: transparent for icon & white for jpg) |
+| minWidth    | Number   | Min image width required else cancel                             |
+| minHeight   | Number   | Min image height required else cancel                            |
+| minSize     | Number   | Min image size required else cancel                              |
+| maxSize     | Number   | Max output size                                                  |
+
+`Jinie.CompressionLoop` exports the [Compression Loop](https://github.com/neilveil/compression-loop) package which is used to compress the image to the target size. It can be used alone to compress images without opening the **Jinie** editor.
+
+## License 📜
+
+This package is open-source and available under the MIT License.
+
+## Contributing 🙌
+
+Contributions to the **Jinie** package are welcome! If you have any ideas, improvements, or bug fixes, please submit a pull request or open an issue.
+
+## Authors 🖋️
+
+Developed & maintained by [neilveil](https://github.com/neilveil)
