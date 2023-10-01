@@ -48,5 +48,19 @@
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-eslint": "^1.8.1"
-  }
+  },
+  "keywords": [
+    "compression",
+    "crop",
+    "editing",
+    "editor",
+    "image",
+    "javascript",
+    "jinie",
+    "jsx",
+    "npm",
+    "react",
+    "rotate",
+    "web"
+  ]
 }

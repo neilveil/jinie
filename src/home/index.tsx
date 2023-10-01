@@ -14,13 +14,13 @@ function App({ children }: { children?: any }) {
               <div className='name'>Jinie</div>
             </div>
 
-            <div className='tagline'>Optimally compress image to a particular size</div>
+            <div className='tagline'>Simple Image Editing & Compression Tool</div>
 
             <div className='install'>npm i jinie</div>
 
             <ul className='highlights'>
-              <li>Simplest implementation</li>
-              <li>Customizable theme</li>
+              <li>Simple implementation</li>
+              <li>Responsive with light/dark theme</li>
               <li>In-built image compression</li>
             </ul>
 

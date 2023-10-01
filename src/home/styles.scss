@@ -40,6 +40,9 @@ $border: 1px solid #e8e8e8;
 
 .tagline {
   margin-bottom: 16px;
+  font-weight: 500;
+  font-size: 16px;
+  color: #686868;
 }
 
 .install {
@@ -55,7 +58,7 @@ $border: 1px solid #e8e8e8;
 }
 
 .highlights {
-  margin-top: 32px;
+  margin: 48px 0;
   font-size: 16px;
   color: #484848;
   list-style: none;
