@@ -26,7 +26,7 @@ function App({ children }: { children?: any }) {
 
             <a href='https://github.com/neilveil/jinie' target='_blank'>
               <div className='github'>
-                <img src='/github.svg' />
+                <img src='/jinie/github.svg' />
                 <span>Docs&nbsp;&nbsp;➞</span>
               </div>
             </a>
