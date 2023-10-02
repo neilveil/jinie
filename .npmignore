@@ -4,8 +4,9 @@ public
 src
 tmp
 
-.eslintrc.cjs
+.*
 index.html
+pages.json
 rollup.*
 tsconfig.*
 vite.*
