@@ -68,7 +68,7 @@ const Jinie = require('jinie');
 | \*img       | Blob     | Source image                                                     |
 | onReady     | Number   | On ready callback                                                |
 | onCancel    | Function | On cancel callback, with cancel reason as argument               |
-| aspectRatio | Number   |                                                                  |
+| aspectRatio | Number   | Crop box aspect ratio                                            |
 | icon        | Number   | Output png file (Default: `false`)                               |
 | fill        | Number   | Background color (Default: transparent for icon & white for jpg) |
 | minWidth    | Number   | Min image width required else cancel                             |

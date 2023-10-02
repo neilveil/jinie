@@ -1,7 +1,7 @@
 {
   "name": "jinie",
   "description": "Simple Image Editing & Compression Tool.",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "main": "dist/jinie.common.js",
   "module": "dist/jinie.esm.js",
   "browser": "dist/jinie.js",
@@ -61,6 +61,7 @@
     "npm",
     "react",
     "rotate",
+    "upload",
     "web"
   ]
 }
