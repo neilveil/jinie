@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/jinie/logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="theme-color" content="#000000">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="/jinie/prism.css">
+    <title>Jinie - Simple Image Editing &amp; Compression Tool</title>
+    <meta property="og:title" content="Jinie - Simple Image Editing &amp; Compression Tool">
+    <meta name="description" content="Easily enhance and optimize images before upload with Jinie. Crop, pan, scale, and rotate with a built-in compression feature to compress images to the target size. 🚀">
+    <meta property="og:description" content="Easily enhance and optimize images before upload with Jinie. Crop, pan, scale, and rotate with a built-in compression feature to compress images to the target size. 🚀">
+    <meta property="og:image" content="https://neilveil.github.io/jinie/logo.png">
+    <meta name="keywords" content="Image Editing, Image Crop, Image Rotate, Image Compression, NPM package, React, Jinie, Compression Loop, Web Image Editor, Web Image Compression, Javascript, JSX, Image Upload">
+    <meta name="author" content="Neil Arya">
+    <link rel="canonical" href="https://neilveil.github.io/jinie">
+    <script type="module" crossorigin="" src="/jinie/assets/index-f5075a49.js"></script>
+    <link rel="stylesheet" href="/jinie/assets/index-04097660.css">
+  </head>
+  <body>
+    <div id="root"><div class="main"><div><div class="header"><div class="container"><div class="logo-name"><div class="logo"><img src="/jinie/logo.png"></div><div class="name">Jinie</div></div><div class="tagline">Simple Image Editing &amp; Compression Tool</div><div class="install">npm i jinie</div><ul class="highlights"><li>Simple implementation</li><li>Responsive with light/dark theme</li><li>In-built image compression</li></ul><a href="https://github.com/neilveil/jinie" target="_blank"><div class="github"><img src="/jinie/github.svg"><span>Docs&nbsp;&nbsp;➞</span></div></a></div></div><div class="body container"><div><div><div class="_title_qmttq_1">Try</div><button>Upload Image</button><div class="_title_qmttq_1">Initialize</div><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token keyword">import</span> Jinie <span class="token keyword">from</span> <span class="token string">'jinie'</span>
+<span class="token keyword">import</span> <span class="token string">'jinie/dist/styles.css'</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+    </span><span class="token punctuation">{</span><span class="token comment">/* Initialize Jinie */</span><span class="token punctuation">}</span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Jinie</span></span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+
+    ..
+
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Routes</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Route</span></span> <span class="token attr-name">..</span> <span class="token punctuation">/&gt;</span></span><span class="token plain-text">
+        ..
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">Routes</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span><span class="token class-name">BrowserRouter</span></span><span class="token punctuation">&gt;</span></span><span class="token plain-text">
+  </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">createRoot</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">'root'</span><span class="token punctuation">)</span> <span class="token keyword">as</span> HTMLElement<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">App</span></span> <span class="token punctuation">/&gt;</span></span><span class="token punctuation">)</span></code></pre><div class="_title_qmttq_1">Examples</div><div class="_label_qmttq_11">Simple image editor</div><button>Upload Image</button><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+  <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    Jinie<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">accept</span><span class="token operator">:</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onResult</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> code<span class="token punctuation">,</span> img <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>code<span class="token punctuation">,</span> img<span class="token punctuation">)</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token function">setImgURL</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></span>
+<span class="token punctuation">&gt;</span></span><span class="token plain-text">
+  Upload Image
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre><div class="_break_qmttq_16"></div><div class="_label_qmttq_11">Upload with compression</div><button>Upload Image</button><div class="_maxSizeRange_qmttq_38"><input type="range" min="100" max="2000" step="100" value="1000"><label>Compress to: 1000 KB </label></div><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+  <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    Jinie<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">accept</span><span class="token operator">:</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onResult</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> img <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token function">setImgURL</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">maxSize</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">1024</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></span>
+<span class="token punctuation">&gt;</span></span><span class="token plain-text">
+  Upload Image
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre><div class="_break_qmttq_16"></div><div class="_label_qmttq_11">Upload square png image with transparent background</div><button>Upload Image</button><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+  <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    Jinie<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">accept</span><span class="token operator">:</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onResult</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> img <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token function">setImgURL</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">aspectRatio</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">icon</span><span class="token operator">:</span> <span class="token boolean">true</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></span>
+<span class="token punctuation">&gt;</span></span><span class="token plain-text">
+  Upload Image
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre><div class="_break_qmttq_16"></div><div class="_label_qmttq_11">Upload png image with red background</div><button>Upload Image</button><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+  <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    Jinie<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">accept</span><span class="token operator">:</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onResult</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> img <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token function">setImgURL</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">aspectRatio</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">icon</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">fill</span><span class="token operator">:</span> <span class="token string">'#ff0000'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></span>
+<span class="token punctuation">&gt;</span></span><span class="token plain-text">
+  Upload Image
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre><div class="_break_qmttq_16"></div><div class="_label_qmttq_11">Min width &amp; height to be 512px</div><button>Upload Image</button><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>button</span>
+  <span class="token attr-name">onClick</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span>
+    Jinie<span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">accept</span><span class="token operator">:</span> <span class="token string">'image/jpeg'</span><span class="token punctuation">,</span>
+      <span class="token function-variable function">onResult</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> img <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>img<span class="token punctuation">)</span> <span class="token function">setImgURL</span><span class="token punctuation">(</span>window<span class="token punctuation">.</span><span class="token constant">URL</span><span class="token punctuation">.</span><span class="token function">createObjectURL</span><span class="token punctuation">(</span>img<span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">minWidth</span><span class="token operator">:</span> <span class="token number">512</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">minHeight</span><span class="token operator">:</span> <span class="token number">512</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span></span>
+<span class="token punctuation">&gt;</span></span><span class="token plain-text">
+  Upload Image
+</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>button</span><span class="token punctuation">&gt;</span></span></code></pre><div class="_break_qmttq_16"></div><div class="_label_qmttq_11">Light/Dark Theme</div><div class="_theme_qmttq_48"><div class="_active_qmttq_59">Light</div><div class="">Dark</div></div><br><button>Upload Image</button><pre class="_code_qmttq_63 language-jsx" tabindex="0"><code class="language-jsx"><span class="token comment">// Light theme</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Jinie</span></span> <span class="token attr-name">theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>light<span class="token punctuation">'</span></span> <span class="token punctuation">/&gt;</span></span>
+
+<span class="token comment">// Dark theme</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Jinie</span></span> <span class="token attr-name">theme</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">'</span>dark<span class="token punctuation">'</span></span> <span class="token punctuation">/&gt;</span></span></code></pre></div></div></div></div><div class="footer">Developed by<a target="_blank" href="https://github.com/neilveil">neilveil</a></div></div></div>
+    <script src="/jinie/prism.js" data-manual=""></script>
+    
+  
+
+</body></html>
