@@ -1,7 +1,7 @@
 {
   "name": "jinie",
   "description": "Simple Image Editing & Compression Tool.",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "main": "dist/jinie.common.js",
   "module": "dist/jinie.esm.js",
   "browser": "dist/jinie.js",
@@ -10,6 +10,7 @@
   "author": "neilveil",
   "license": "MIT",
   "type": "module",
+  "homepage": "https://neilveil.github.io/jinie",
   "scripts": {
     "start": "vite --host",
     "pretty": "prettier --write ./src",
