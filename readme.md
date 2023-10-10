@@ -78,6 +78,28 @@ const Jinie = require('jinie');
 
 `Jinie.CompressionLoop` exports the [Compression Loop](https://github.com/neilveil/compression-loop) package which is used to compress the image to the target size. It can be used alone to compress images without opening the **Jinie** editor.
 
+## Dark theme setup
+
+While initializing `Jinie`
+
+```jsx
+<Jinie theme='dark' />
+```
+
+or automatic theme detection with `body[data-theme]="dark"`
+
+```html
+<html>
+  <head>
+    ..
+  </head>
+
+  <body data-theme="dark">
+    ..
+  </body>
+</html>
+```
+
 ## License 📜
 
 This package is open-source and available under the MIT License.
