@@ -16,7 +16,7 @@
     "pretty": "prettier --write ./src",
     "lint": "eslint ./src",
     "clean": "npm run pretty && npm run lint",
-    "copy-styles": "cp ./node_modules/cropperjs/dist/cropper.min.css ./src/lib/cropper.css",
+    "copy-styles": "cp ./node_modules/cropperjs/dist/cropper.min.css ./src/lib/cropper.scss",
     "dist:styles": "sass src/lib/jinie.scss:dist/styles.css --no-source-map",
     "dist:scripts": "rollup --config",
     "dist": "npm-run-all dist:scripts copy-styles dist:styles",
