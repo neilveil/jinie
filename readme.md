@@ -20,6 +20,7 @@ ReactJS example
 
 ```jsx
 import Jinie from 'jinie'
+import 'jinie/styles.css'
 
 function App() {
   return (<div>
@@ -30,7 +31,7 @@ function App() {
 
     <BrowserRouter>
       <Routes>
-        <Route path="/" />
+        <Route .. />
         ..
       </Routes>
     </BrowserRouter>
@@ -40,7 +41,7 @@ function App() {
 createRoot(document.getElementById('root') as HTMLElement).render(<App />)
 ```
 
-Here's a basic example of how to use Compression Loop to compress images:
+Here's a basic example of how to use Jinie to edit images:
 
 ```jsx
 const Jinie = require('jinie');

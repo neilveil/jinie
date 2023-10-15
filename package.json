@@ -1,7 +1,7 @@
 {
   "name": "jinie",
   "description": "Simple Image Editing & Compression Tool.",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "main": "dist/jinie.common.js",
   "module": "dist/jinie.esm.js",
   "browser": "dist/jinie.js",
@@ -16,9 +16,12 @@
     "pretty": "prettier --write ./src",
     "lint": "eslint ./src",
     "clean": "npm run pretty && npm run lint",
+    "copy-styles": "cp ./node_modules/cropperjs/dist/cropper.min.css ./src/lib/cropper.css",
+    "dist:styles": "sass src/lib/jinie.scss:dist/styles.css --no-source-map",
+    "dist:scripts": "rollup --config",
+    "dist": "npm-run-all dist:scripts copy-styles dist:styles",
     "build": "vite build",
-    "build-plus": "build-plus",
-    "dist": "rollup --config"
+    "build-plus": "build-plus"
   },
   "dependencies": {
     "compression-loop": "^1.2.0",
@@ -40,6 +43,7 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "npm-run-all": "^4.1.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^3.28.0",

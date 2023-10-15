@@ -2,8 +2,6 @@ import React from 'react'
 import Cropper from 'cropperjs'
 import CompressionLoop from 'compression-loop'
 import type { CompressionLoopArgs } from 'compression-loop'
-import 'cropperjs/dist/cropper.min.css'
-import './jinie.scss'
 
 const _URL = window.URL || window.webkitURL
 
