@@ -20,7 +20,7 @@ ReactJS example
 
 ```jsx
 import Jinie from 'jinie'
-import 'jinie/styles.css'
+import 'jinie/dist/styles.css'
 
 function App() {
   return (<div>
