@@ -1,11 +1,22 @@
 import Jinie from '../lib'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import s from './styles.module.scss'
+import * as snippets from './snippets'
+
+declare global {
+  interface Window {
+    Prism: any
+  }
+}
 
 function App() {
   const [imgURL, setImgURL] = useState('')
   const [maxSize, setMaxSize] = useState(1000)
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
+  useEffect(() => {
+    window.Prism.highlightAll()
+  }, [imgURL])
 
   return (
     <div>
@@ -17,38 +28,59 @@ function App() {
         </div>
       ) : (
         <div>
+          <div className={s.title}>Try</div>
+
+          <button
+            onClick={() =>
+              Jinie.init({
+                accept: 'image/jpeg',
+                onReady: img => setImgURL(window.URL.createObjectURL(img))
+              })
+            }
+          >
+            Upload Image
+          </button>
+
+          <div className={s.title}>Initialize</div>
+
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s0.trim()}</code>
+          </pre>
+
           <div className={s.title}>Examples</div>
 
           <div className={s.label}>Simple image editor</div>
-          <input
-            type='file'
-            accept='image/jpeg'
-            onChange={async (e: any) => {
-              if (imgURL) window.URL.revokeObjectURL(imgURL)
-              const img = e.target.files[0]
-              Jinie.init({ img, onReady: img => setImgURL(window.URL.createObjectURL(img)) })
-            }}
-          />
+
+          <button
+            onClick={() =>
+              Jinie.init({
+                accept: 'image/jpeg',
+                onReady: img => setImgURL(window.URL.createObjectURL(img))
+              })
+            }
+          >
+            Upload Image
+          </button>
+
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s1.trim()}</code>
+          </pre>
 
           <div className={s.break} />
 
           <div className={s.label}>Upload with compression</div>
 
-          <input
-            type='file'
-            accept='image/jpeg'
-            onChange={async (e: any) => {
-              if (imgURL) window.URL.revokeObjectURL(imgURL)
-
-              const img = e.target.files[0]
-
+          <button
+            onClick={() =>
               Jinie.init({
-                img,
+                accept: 'image/jpeg',
                 onReady: img => setImgURL(window.URL.createObjectURL(img)),
                 maxSize
               })
-            }}
-          />
+            }
+          >
+            Upload Image
+          </button>
 
           <div className={s.maxSizeRange}>
             <input
@@ -62,70 +94,74 @@ function App() {
             <label>{maxSize ? `Compress to: ${maxSize} KB` : 'No compression!'} </label>
           </div>
 
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s2.trim()}</code>
+          </pre>
+
           <div className={s.break} />
 
           <div className={s.label}>Upload square png image with transparent background</div>
 
-          <input
-            type='file'
-            accept='image/png'
-            onChange={async (e: any) => {
-              if (imgURL) window.URL.revokeObjectURL(imgURL)
-
-              const img = e.target.files[0]
-
+          <button
+            onClick={() =>
               Jinie.init({
-                img,
+                accept: 'image/jpeg',
                 onReady: img => setImgURL(window.URL.createObjectURL(img)),
                 aspectRatio: 1,
                 icon: true
               })
-            }}
-          />
+            }
+          >
+            Upload Image
+          </button>
+
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s3.trim()}</code>
+          </pre>
 
           <div className={s.break} />
 
           <div className={s.label}>Upload png image with red background</div>
 
-          <input
-            type='file'
-            accept='image/png'
-            onChange={async (e: any) => {
-              if (imgURL) window.URL.revokeObjectURL(imgURL)
-
-              const img = e.target.files[0]
-
+          <button
+            onClick={() =>
               Jinie.init({
-                img,
+                accept: 'image/jpeg',
                 onReady: img => setImgURL(window.URL.createObjectURL(img)),
                 aspectRatio: 1,
                 icon: true,
                 fill: '#ff0000'
               })
-            }}
-          />
+            }
+          >
+            Upload Image
+          </button>
+
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s4.trim()}</code>
+          </pre>
 
           <div className={s.break} />
 
           <div className={s.label}>Min width & height to be 512px</div>
 
-          <input
-            type='file'
-            accept='image/png'
-            onChange={async (e: any) => {
-              if (imgURL) window.URL.revokeObjectURL(imgURL)
-
-              const img = e.target.files[0]
-
+          <button
+            onClick={() =>
               Jinie.init({
-                img,
+                accept: 'image/jpeg',
                 onReady: img => setImgURL(window.URL.createObjectURL(img)),
                 onCancel: status => console.log(status),
                 minWidth: 512,
                 minHeight: 512
               })
-            }}
-          />
+            }
+          >
+            Upload Image
+          </button>
+
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s5.trim()}</code>
+          </pre>
 
           <div className={s.break} />
 
@@ -142,15 +178,20 @@ function App() {
 
           <br />
 
-          <input
-            type='file'
-            accept='image/jpeg'
-            onChange={async (e: any) => {
-              if (imgURL) window.URL.revokeObjectURL(imgURL)
-              const img = e.target.files[0]
-              Jinie.init({ img, onReady: img => setImgURL(window.URL.createObjectURL(img)) })
-            }}
-          />
+          <button
+            onClick={() =>
+              Jinie.init({
+                accept: 'image/jpeg',
+                onReady: img => setImgURL(window.URL.createObjectURL(img))
+              })
+            }
+          >
+            Upload Image
+          </button>
+
+          <pre className={s.code}>
+            <code className='language-jsx'>{snippets.s6.trim()}</code>
+          </pre>
         </div>
       )}
     </div>

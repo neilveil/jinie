@@ -44,10 +44,25 @@ createRoot(document.getElementById('root') as HTMLElement).render(<App />)
 Here's a basic example of how to use Jinie to edit images:
 
 ```jsx
-const Jinie = require('jinie');
+import Jinie from 'jinie'
 
 ..
 
+// Upload and crop image on init
+<button
+  onClick={() =>
+    Jinie.init({
+      accept: 'image/jpeg',
+      onReady: result => {
+        console.log(result) // Cropped image blob
+      }
+    })
+  }
+>
+  Upload Image
+</button>
+
+// Or provide an image to crop in init
 <input
   type='file'
   accept='image/jpeg'
@@ -55,27 +70,27 @@ const Jinie = require('jinie');
     const img = e.target.files[0]
     Jinie.init({
       img,
-      onReady: img => {
-        const result = setImgURL(window.URL.createObjectURL(img))
-        console.log(result) // Image blob
+      onReady: result => {
+        console.log(result) // Cropped image blob
       }
     })
   }}
 />
 ```
 
-| Argument    | Type     | Usage                                                            |
-| ----------- | -------- | ---------------------------------------------------------------- |
-| \*img       | Blob     | Source image                                                     |
-| onReady     | Number   | On ready callback                                                |
-| onCancel    | Function | On cancel callback, with cancel reason as argument               |
-| aspectRatio | Number   | Crop box aspect ratio                                            |
-| icon        | Number   | Output png file (Default: `false`)                               |
-| fill        | Number   | Background color (Default: transparent for icon & white for jpg) |
-| minWidth    | Number   | Min image width required else cancel                             |
-| minHeight   | Number   | Min image height required else cancel                            |
-| minSize     | Number   | Min image size required else cancel                              |
-| maxSize     | Number   | Max output size                                                  |
+| Argument    | Type      | Usage                                                            |
+| ----------- | --------- | ---------------------------------------------------------------- |
+| onReady     | Function  | On ready callback                                                |
+| onCancel    | ?Function | On cancel callback, with cancel reason as argument               |
+| accept      | ?String   | Allowed mime types (Default: `image/jpeg,image/png`)             |
+| \*img       | ?Blob     | Source image                                                     |
+| aspectRatio | ?Number   | Crop box aspect ratio                                            |
+| icon        | ?Number   | Output png file (Default: `false`)                               |
+| fill        | ?Number   | Background color (Default: transparent for icon & white for jpg) |
+| minWidth    | ?Number   | Min image width required else cancel                             |
+| minHeight   | ?Number   | Min image height required else cancel                            |
+| minSize     | ?Number   | Min image size required else cancel                              |
+| maxSize     | ?Number   | Max output size                                                  |
 
 `Jinie.CompressionLoop` exports the [Compression Loop](https://github.com/neilveil/compression-loop) package which is used to compress the image to the target size. It can be used alone to compress images without opening the **Jinie** editor.
 

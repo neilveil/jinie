@@ -6,8 +6,8 @@ import type { CompressionLoopArgs } from 'compression-loop'
 const _URL = window.URL || window.webkitURL
 
 interface editor {
-  img: Blob
   onReady: (img: Blob) => void
+  img?: Blob
   onCancel?: (status: string) => void
   aspectRatio?: number
   icon?: boolean
@@ -16,6 +16,7 @@ interface editor {
   minHeight?: number
   minSize?: number
   maxSize?: number
+  accept?: string
 }
 
 interface props {
@@ -31,6 +32,15 @@ export default class Main extends React.Component<props> {
 
   componentDidMount = () => (Main._this = this)
 
+  static requestImage = (accept: string = 'image/jpeg,image/png') =>
+    new Promise<Blob>(resolve => {
+      const inputEl = document.createElement('input')
+      inputEl.type = 'file'
+      inputEl.accept = accept
+      inputEl.onchange = (e: any) => resolve(e.target.files[0])
+      inputEl.click()
+    })
+
   static init = async ({
     img,
     onReady,
@@ -41,9 +51,10 @@ export default class Main extends React.Component<props> {
     minWidth = 32,
     minHeight = 32,
     minSize,
-    maxSize
+    maxSize,
+    accept
   }: editor) => {
-    if (!img) return
+    if (!img) img = await Main.requestImage(accept)
 
     const { width, height, size } = await getImgDetails(img)
 
