@@ -26,7 +26,10 @@ export const s1 = `
   onClick={() =>
     Jinie.init({
       accept: 'image/jpeg',
-      onReady: img => setImgURL(window.URL.createObjectURL(img))
+      onResult: ({ code, img }) => {
+        console.log(code, img)
+        if (img) setImgURL(window.URL.createObjectURL(img))
+      }
     })
   }
 >
@@ -39,8 +42,10 @@ export const s2 = `
   onClick={() =>
     Jinie.init({
       accept: 'image/jpeg',
-      onReady: img => setImgURL(window.URL.createObjectURL(img)),
-      maxSize: 1000
+      onResult: ({ img }) => {
+        if (img) setImgURL(window.URL.createObjectURL(img))
+      },
+      maxSize: 2 * 1024
     })
   }
 >
@@ -53,7 +58,9 @@ export const s3 = `
   onClick={() =>
     Jinie.init({
       accept: 'image/jpeg',
-      onReady: img => setImgURL(window.URL.createObjectURL(img)),
+      onResult: ({ img }) => {
+        if (img) setImgURL(window.URL.createObjectURL(img))
+      },
       aspectRatio: 1,
       icon: true
     })
@@ -68,7 +75,9 @@ export const s4 = `
   onClick={() =>
     Jinie.init({
       accept: 'image/jpeg',
-      onReady: img => setImgURL(window.URL.createObjectURL(img)),
+      onResult: ({ img }) => {
+        if (img) setImgURL(window.URL.createObjectURL(img))
+      },
       aspectRatio: 1,
       icon: true,
       fill: '#ff0000'
@@ -84,8 +93,9 @@ export const s5 = `
   onClick={() =>
     Jinie.init({
       accept: 'image/jpeg',
-      onReady: img => setImgURL(window.URL.createObjectURL(img)),
-      onCancel: status => console.log(status),
+      onResult: ({ img }) => {
+        if (img) setImgURL(window.URL.createObjectURL(img))
+      },
       minWidth: 512,
       minHeight: 512
     })

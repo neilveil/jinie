@@ -5,10 +5,21 @@ import type { CompressionLoopArgs } from 'compression-loop'
 
 const _URL = window.URL || window.webkitURL
 
-interface editor {
-  onReady: (img: Blob) => void
+type result = {
+  code:
+    | 'OK'
+    | 'MAX_COMPRESSION'
+    | 'COMPRESSION_ERROR'
+    | 'MIN_WIDTH_FAIL'
+    | 'MIN_HEIGHT_FAIL'
+    | 'MIN_SIZE_FAIL'
+    | 'CANCELED'
   img?: Blob
-  onCancel?: (status: string) => void
+}
+
+interface editor {
+  onResult?: (result: result) => void
+  img?: Blob
   aspectRatio?: number
   icon?: boolean
   fill?: string
@@ -42,9 +53,8 @@ export default class Main extends React.Component<props> {
     })
 
   static init = async ({
+    onResult,
     img,
-    onReady,
-    onCancel,
     aspectRatio,
     icon,
     fill,
@@ -59,17 +69,17 @@ export default class Main extends React.Component<props> {
     const { width, height, size } = await getImgDetails(img)
 
     if (width < minWidth) {
-      if (onCancel) onCancel('min-width-fail')
+      if (onResult) onResult({ code: 'MIN_WIDTH_FAIL' })
       return
     }
 
     if (height < minHeight) {
-      if (onCancel) onCancel('min-height-fail')
+      if (onResult) onResult({ code: 'MIN_HEIGHT_FAIL' })
       return
     }
 
     if (minSize && size < minSize) {
-      if (onCancel) onCancel('min-size-fail')
+      if (onResult) onResult({ code: 'MIN_SIZE_FAIL' })
       return
     }
 
@@ -84,8 +94,8 @@ export default class Main extends React.Component<props> {
 
         if (aspectRatio) config.aspectRatio = aspectRatio
 
-        if (minWidth) config.minCropBoxWidth = minWidth
-        if (minHeight) config.minCropBoxHeight = minHeight
+        if (minWidth) config.minCropBoxWidth = 128
+        if (minHeight) config.minCropBoxHeight = 128
 
         Main._this.cropper = new Cropper(Main._this.imgRef, {
           dragMode: 'move',
@@ -99,19 +109,21 @@ export default class Main extends React.Component<props> {
         if (icon) Main.icon = icon
         if (fill) Main.fill = fill
         if (maxSize) Main.maxSize = maxSize
-        if (onReady) Main.onReady = onReady
-        if (onCancel) Main.onCancel = onCancel
+        if (minWidth) Main.minWidth = minWidth
+        if (minHeight) Main.minHeight = minHeight
+        if (onResult) Main.onResult = onResult
       }
     )
 
     document.body.style.overflow = 'hidden'
   }
 
-  static icon: any = null
-  static fill: any = null
-  static maxSize: any = null
-  static onReady: any = null
-  static onCancel: any = null
+  static icon?: boolean
+  static fill?: string
+  static maxSize?: number
+  static minWidth?: number
+  static minHeight?: number
+  static onResult?: (result: result) => void
   static processing = false
 
   static CompressionLoop = (config: CompressionLoopArgs) => CompressionLoop(config)
@@ -139,17 +151,18 @@ export default class Main extends React.Component<props> {
     this.cropper.destroy()
     this.cropper = null
 
-    Main.icon = null
-    Main.fill = null
-    Main.maxSize = null
-    Main.onReady = null
-    Main.onCancel = null
+    Main.icon = undefined
+    Main.fill = undefined
+    Main.maxSize = undefined
+    Main.minWidth = undefined
+    Main.minHeight = undefined
+    Main.onResult = undefined
     Main.processing = false
 
     document.body.style.overflow = 'unset'
   }
   onCancel = () => {
-    if (Main.onCancel) Main.onCancel('canceled')
+    if (Main.onResult) Main.onResult({ code: 'CANCELED' })
     this.close()
   }
   onDone = async () => {
@@ -170,6 +183,7 @@ export default class Main extends React.Component<props> {
     }
 
     let img = this.cropper.getCroppedCanvas(config).toDataURL(mimeType)
+    let code: result['code'] = 'OK'
 
     img = await dataURLToBlob(img)
 
@@ -180,10 +194,29 @@ export default class Main extends React.Component<props> {
         onProgress: ({ progress }) => this.setState({ progress })
       })
 
-      if (status === 'success') img = compressedImg
+      if (['success', 'already-compressed', 'max-compression-reached'].includes(status)) {
+        img = compressedImg
+
+        if (status === 'max-compression-reached') code = 'MAX_COMPRESSION'
+
+        const { width, height } = await getImgDetails(img)
+
+        if (Main.minWidth && width < Main.minWidth) {
+          code = 'MIN_WIDTH_FAIL'
+          img = undefined
+        }
+
+        if (Main.minHeight && height < Main.minHeight) {
+          code = 'MIN_HEIGHT_FAIL'
+          img = undefined
+        }
+      } else {
+        code = 'COMPRESSION_ERROR'
+        img = undefined
+      }
     }
 
-    if (Main.onReady) Main.onReady(img)
+    if (Main.onResult) Main.onResult({ code, img })
 
     Main.processing = false
     this.close()

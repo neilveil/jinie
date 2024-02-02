@@ -34,7 +34,10 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img))
+                onResult: ({ code, img }) => {
+                  console.log(code, img)
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                }
               })
             }
           >
@@ -55,7 +58,9 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img))
+                onResult: ({ img }) => {
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                }
               })
             }
           >
@@ -74,8 +79,10 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img)),
-                maxSize
+                onResult: ({ img }) => {
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                },
+                maxSize: maxSize * 1024
               })
             }
           >
@@ -106,7 +113,9 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img)),
+                onResult: ({ img }) => {
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                },
                 aspectRatio: 1,
                 icon: true
               })
@@ -127,7 +136,9 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img)),
+                onResult: ({ img }) => {
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                },
                 aspectRatio: 1,
                 icon: true,
                 fill: '#ff0000'
@@ -149,8 +160,9 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img)),
-                onCancel: status => console.log(status),
+                onResult: ({ img }) => {
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                },
                 minWidth: 512,
                 minHeight: 512
               })
@@ -182,7 +194,9 @@ function App() {
             onClick={() =>
               Jinie.init({
                 accept: 'image/jpeg',
-                onReady: img => setImgURL(window.URL.createObjectURL(img))
+                onResult: ({ img }) => {
+                  if (img) setImgURL(window.URL.createObjectURL(img))
+                }
               })
             }
           >
