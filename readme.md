@@ -79,18 +79,18 @@ import Jinie from 'jinie'
 />
 ```
 
-| Argument    | Type     | Usage                                                            |
-| ----------- | -------- | ---------------------------------------------------------------- |
-| onResult    | Function | Result callback                                                  |
-| img         | ?Blob    | Source image                                                     |
-| accept      | ?String  | Allowed mime types (Default: `image/jpeg,image/png`)             |
-| aspectRatio | ?Number  | Crop box aspect ratio                                            |
-| icon        | ?Number  | Output png file (Default: `false`)                               |
-| fill        | ?Number  | Background color (Default: transparent for icon & white for jpg) |
-| minWidth    | ?Number  | Min image width required else cancel                             |
-| minHeight   | ?Number  | Min image height required else cancel                            |
-| minSize     | ?Number  | Min image size required else cancel                              |
-| maxSize     | ?Number  | Max output size                                                  |
+| Argument    | Type     | Usage                                                | Default                              |
+| ----------- | -------- | ---------------------------------------------------- | ------------------------------------ |
+| onResult    | Function | Result callback                                      |                                      |
+| img         | ?Blob    | Source image, if not provded, request image on init  |                                      |
+| accept      | ?String  | Allowed mime types, only works when img not provided | `image/jpeg,image/png`               |
+| aspectRatio | ?Number  | Crop box aspect ratio                                |                                      |
+| icon        | ?Number  | Output png file                                      | `false`                              |
+| fill        | ?Number  | Background color                                     | Transparent for icon & white for jpg |
+| minWidth    | ?Number  | Min image width required else cancel                 |                                      |
+| minHeight   | ?Number  | Min image height required else cancel                |                                      |
+| minSize     | ?Number  | Min image size required else cancel                  |                                      |
+| maxSize     | ?Number  | Max output size                                      |                                      |
 
 Result codes
 
